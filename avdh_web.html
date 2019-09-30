@@ -1,0 +1,99 @@
+
+<html>
+	<head>	
+		<title>
+			avdhesh_webpage
+		</title>
+		<script src="jquery-3.3.1.min.js"></script>
+		<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#header{
+			margin: 50px auto;
+			width: 70%;
+			background-color: #111;
+		}
+		ul{
+			list-style: none;
+			overflow: hidden;
+			background-color: green;
+		}
+
+		#items li{
+			float: left;
+		}
+
+		li a, .dropbtn {
+			display: inline-block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			transition: 0.4s;
+		}
+		li a:hover, .dropdown:hover .dropbtn {
+  			background-color: red;
+  			transition: 0.4s;
+		}
+
+		li.dropdown{
+			display: inline-block;
+		}
+
+		.submenu{
+			display: none;
+			position: absolute;
+			background-color: #ccc;
+			min-width: 150px;
+		}
+		.submenu a{
+			color: black;
+		  	padding: 12px 16px;
+		  	text-decoration: none;
+		  	display: block;
+		  	text-align: left;
+		}
+
+		.submenu a:hover{
+			background-color: #aaa;
+		}
+
+		</style>
+
+		<script>
+			
+			$(document).ready(function(){
+				$(".dropdown").on({
+					mouseenter:function(){
+						$(this).children('div').slideDown("fast");
+					},
+					mouseleave:function(){
+						$(this).children('div').slideUp("fast");
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<ul id="items">
+					<li><a href="">home</a></li>
+					<li class="dropdown"><a href="" class="dropbtn">home</a>
+						<div class="submenu">
+							<a href="">search</a>
+							<a href="">search</a>
+							<a href="">search</a>
+							<a href="">search</a>
+						</div>
+					</li>
+					<li><a href="">home</a></li>
+					<li><a href="">home</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</body>
+</html>
