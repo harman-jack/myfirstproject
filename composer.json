@@ -1,5 +1,5 @@
 {
-	"name": "ced/magenative_app",
+	"name": "ced_opencart/magenative_app",
     "type": "Ced_Magenative",
     "description": "magenative_app",
     "keywords": ["opencart", "ecommerce", "framework", "opensource"],
