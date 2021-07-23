@@ -1,6 +1,6 @@
 {
 	"name": "ced_opencart/magenative_app",
-    "type": "Ced_Magenative",
+    "type": "CedMagenative",
     "description": "magenative_app",
     "require": {
         "php": ">=7.4"
