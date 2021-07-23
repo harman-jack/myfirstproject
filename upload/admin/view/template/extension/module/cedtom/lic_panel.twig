@@ -1,0 +1,96 @@
+{{ header }}{{ column_left }} 
+
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-license" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %} 
+        <li><a href="{{ breadcrumb['href'] }}">{{ breadcrumb['text'] }}</a></li>
+      {% endfor %} 
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> License Panel</h3>
+      </div>
+      <div class="panel-body" style="padding: 5% 20%;">
+        <form class="form-horizontal" id="form-license">
+            <label  class="text-secondary text-muted">{{ entry_lic_note }}</label>
+            <div class="form-group">
+              <label  class="col-sm-2 control-label" for="input-agree"><span data-toggle="tooltip" title="{{ help_agree }}">{{ entry_agree }}</span></label>
+              <div class="col-sm-6">
+                <input name="cedamazon_agree"  placeholder="{{ entry_agree }}" id="input-agree"  value="" class="form-control" /></br>
+                <div id="error_message">
+                  
+                </div>
+              </div>
+            </div>
+            <div class="form-group" style="border-top:none;">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <button id="licenseValidate" data-toggle="tooltip" title="{{ button_save_lic }}" class="btn btn-success"><i class="fa fa-save"></i> {{ button_save_lic }}</button>
+                <a href="{{ button_cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i> Cancel</a>
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"><!--
+$('.panel-body').on('keydown', 'input.form-control', function(ev) {
+  // enter has keyCode = 13, change it if you want to use another button
+  var keycode = (ev.keyCode ? ev.keyCode : ev.which);
+  if (keycode == 13) {
+    verifyLicense();
+    return false;
+  }
+});
+
+$('#licenseValidate').on('click', function(event){
+  event.preventDefault();
+  verifyLicense();
+
+});
+      
+  function verifyLicense(){
+      url = '{{ redirect_url }}';
+      
+      var lic_key = $('input[name="cedamazon_agree"]').val();
+      
+      $.ajax({
+          url: url,
+          type: 'post',
+          data: {'lic_key':lic_key},
+          dataType: 'json',
+          cache: false,
+          beforeSend: function() {
+              
+          },
+          complete: function() {
+              
+          },
+          success: function(json) {
+            
+              if(json['message']){
+                html = '<div id="error_message" class="alert alert-danger">'+json['message']+'<button type="button" class="close" data-dismiss="alert">&times;</button></div>';
+                $('#error_message').html(html);
+                
+              }else
+              if(json){
+                location = '{{ action }}';
+              }
+          },
+          error: function(xhr, ajaxOptions, thrownError) {
+              alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+          }
+      });
+    }
+    </script>
+{{ footer }} 
