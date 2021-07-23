@@ -1,7 +1,7 @@
 {
 	"name": "cedopencart/magenativeapp",
     "type": "cedmagenative",
-    "description": "magenative_app",
+    "description": "magenative app",
 	"keywords": ["relevant","tags","go","here"],
     "homepage": "https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=35183&filter_search=magenative&filter_category_id=20",
 	"authors": [
