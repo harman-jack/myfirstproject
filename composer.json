@@ -4,7 +4,7 @@
     "description": "magenative_app",
 	"keywords": ["relevant","tags","go","here"],
     "homepage": "https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=35183&filter_search=magenative&filter_category_id=20",
-    "license": "CED",
+    "license": "e2b3c9e9be466b258c80b24730aacdd297027ca9",
     "require": {
         "php": ">=7.4"
     }
