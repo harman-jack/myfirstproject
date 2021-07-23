@@ -1,7 +1,7 @@
 {
-	"name": "opencart/magenative_app",
-    "type": "project",
-    "description": "OpenCart",
+	"name": "ced/magenative_app",
+    "type": "Ced_Magenative",
+    "description": "magenative_app",
     "keywords": ["opencart", "ecommerce", "framework", "opensource"],
     "homepage": "https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=35183&filter_search=magenative&filter_category_id=20",
     "license": "v1.0",
